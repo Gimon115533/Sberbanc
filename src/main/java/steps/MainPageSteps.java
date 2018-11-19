@@ -13,6 +13,7 @@ public class MainPageSteps {
 //        new MainPage().selectMenuItem(menuItem);
 //    }
 
+
     @Step("Нажать на страхование")
     public void insurance(){
         new MainPage().insuranceMainMenu.click();

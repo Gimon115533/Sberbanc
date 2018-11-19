@@ -1,6 +1,6 @@
 package steps;
 
-import org.junit.AfterClass;
+import org.junit.After;
 import org.junit.Before;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -16,7 +16,7 @@ import java.util.concurrent.TimeUnit;
  */
 
 public class BaseSteps {
-    private static WebDriver driver;
+    protected static WebDriver driver;
 
     public static WebDriver getDriver(){
         return driver;
@@ -38,8 +38,8 @@ public class BaseSteps {
         driver .manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
     }
 
-    @AfterClass
-    public static void afterMethod(){
+    @After
+    public void afterMethod(){
         driver .quit();
     }
 

@@ -1,4 +1,9 @@
 import org.junit.Test;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Wait;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import ru.yandex.qatools.allure.annotations.Title;
 import steps.*;
 
@@ -21,15 +26,19 @@ public class ExampleTest extends BaseSteps {
     public void Test(){
         testData.put("первая фамилия", "Ivanov");
         testData.put("первое имя","Ivan");
-        testData.put("первая др","01011980");
-        testData.put("фамилия","фамилия");
-        testData.put("имя","имя");
-        testData.put("отчество","отчество");
-        testData.put("др","01011980");
+        testData.put("первая др","01.01.1980");
+        testData.put("фамилия","Фамилия");
+        testData.put("имя","Имя");
+        testData.put("отчество","Отчество");
+        testData.put("др","01.01.1980");
         testData.put("серия","1234");
         testData.put("номер","123456");
-        testData.put("дата","01012015");
+        testData.put("дата","01.01.2015");
         testData.put("кем","кем");
+
+        Wait<WebDriver> wait = new WebDriverWait(driver, 5, 1000);
+        wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//span[text()='Страхование']"))));
+
 
 //        mainPageSteps.selectMenuItem("Страхование");
         mainPageSteps.insurance();
@@ -39,12 +48,12 @@ public class ExampleTest extends BaseSteps {
         swetchPage();
         selectPageStaps.clicButonMinimaize();
         selectPageStaps.goToNetPage();
-        completeFormPageSteps.checkPageTitle("Задать проверяемй заголовок");
+        completeFormPageSteps.checkPageTitle("Введите данные застрахованных латинскими буквами, как в загранпаспорте");
 
         completeFormPageSteps.fillFields(testData);
 
-        completeFormPageSteps.checkFillFields(testData);
         completeFormPageSteps.clicsendButonNext();
+        completeFormPageSteps.checkFillFields(testData);
         completeFormPageSteps.checkErrorMessageField("Заполнены не все обязательные поля", "Заполнены не все обязательные поля");
     }
 

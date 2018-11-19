@@ -18,7 +18,7 @@ public class MainPage {
 //    @FindBy(xpath = "//*[contains(@class,'lg-menu')]//*[contains(text(),'Путешествия и покупки')]")
 //    WebElement menuInsurance;
 
-    @FindBy(xpath = "//li[contains(@class,'lg-menu')]//*[contains(text(), 'Страхование')]")
+    @FindBy(xpath = "//span[text()='Страхование']")
     public WebElement insuranceMainMenu;
     @FindBy(xpath = "//*[contains(@class,'lg-menu')]//*[contains(text(),'Путешествия и покупки')]")
     public WebElement insuranceTripMainMenu;

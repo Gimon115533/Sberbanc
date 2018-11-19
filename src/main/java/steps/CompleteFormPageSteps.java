@@ -33,7 +33,7 @@ public class CompleteFormPageSteps {
 
     @Step("заголовок страницы - Отправить заявку равен {0}")
     public void checkPageTitle(String expectedTitle){
-        String actualTitle = new ComleteFormPage().insured0_surname.getText();
+        String actualTitle = new ComleteFormPage().findTitle.getText();
         assertTrue(String.format("Заголовок равен [%s]. Ожидалось - [%s]",
                 actualTitle, expectedTitle), actualTitle.contains(expectedTitle));
     }

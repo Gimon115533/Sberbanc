@@ -55,6 +55,9 @@ public class ComleteFormPage extends BasePageObject {
     @FindBy(xpath = "//*[contains(@ng-click,'save()')]")
     public WebElement sendButonNext;
 
+    @FindBy(xpath = "//span[contains(text(),'Введите данные застрахованных латинскими буквами, как в загранпаспорте')]")
+    public WebElement findTitle;
+
     @FindBy(xpath="//*[contains(text(),'Заполнены не все обязательные поля')]")
     public WebElement messeg;
 
@@ -114,7 +117,7 @@ public class ComleteFormPage extends BasePageObject {
                 return insured0_birthDate.getAttribute("value");
             case  "фамилия":
                 return surname.getAttribute("value");
-            case  "Имя":
+            case  "имя":
                 return name.getAttribute("value");
             case  "отчество":
                 return middlename.getAttribute("value");
